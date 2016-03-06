@@ -33,10 +33,7 @@ class TestBookmarker < MiniTest::Test
     assert_equal( 'news', @bookmarker.genre)
   end
 
-  # def save
-  #   assert_equal()
-  # end
-  ### ???
+
 
 
 

@@ -1,0 +1,9 @@
+<h1>All Bookmarks</h1>
+
+<% @bookmarker.each do |bookmark| %> 
+  <p><%= bookmark.name %></p>
+  <p><%= bookmark.url %></p>
+  <p><%= bookmark.genre %></p>
+  <hr>
+<%end%>
+

@@ -5,12 +5,17 @@ require_relative( './models/bookmarker.rb' )
 
 
 get '/bookmarker' do
-  
+  @bookmarker = Bookmarker.all
+  erb(:index)
 end
 
 get '/bookmarker/new' do
-  @bookmarker = Bookmarker.new( params )
   erb(:new)
+end
+
+get '/bookmarker/:id' do
+  @bookmarker = Bookmarker.find( params[:id] )
+  erb(:show)
 end
 
 post '/bookmarker' do
