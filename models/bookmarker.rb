@@ -54,4 +54,12 @@ class Bookmarker
     database.close
   end
 
+  def self.destroy( input )
+    database = PG.connect( { dbname: 'bookmarker', host: 'localhost'} )
+    sql = "DELETE FROM bookmarks WHERE id = #{input}"
+    result = database.exec( sql )
+    database.close
+    return result
+  end
+
 end

@@ -34,7 +34,9 @@ post '/bookmarker/:id' do
   redirect(to( "bookmarker/#{params[:id]}" ))
 end
 
-# post '/bookmarker/:id/delete' do
+post '/bookmarker/:id/delete' do
+  Bookmarker.destroy( params[:id] )
+  redirect(to( '/bookmarker'))
+end
+##### Why can I not type this url straight in to the browser to delete entries?
 
-
-# end
