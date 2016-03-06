@@ -24,3 +24,17 @@ post '/bookmarker' do
   erb(:create)
 end
 
+get '/bookmarker/:id/edit' do
+  @bookmarker = Bookmarker.find( params[:id] )
+  erb( :edit )
+end
+
+post '/bookmarker/:id' do
+  Bookmarker.update( params )
+  redirect(to( "bookmarker/#{params[:id]}" ))
+end
+
+# post '/bookmarker/:id/delete' do
+
+
+# end

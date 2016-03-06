@@ -43,5 +43,15 @@ class Bookmarker
     return result
   end
 
+  def self.update( options )
+    database = PG.connect( { dbname: 'bookmarker', host: 'localhost'} )
+    sql = "UPDATE bookmarks SET
+      name = '#{options['name']}',
+      url = '#{options['url']}',
+      genre = '#{options['genre']}'
+      WHERE id = '#{options['id']}'"
+    database.exec( sql )
+    database.close
+  end
 
 end

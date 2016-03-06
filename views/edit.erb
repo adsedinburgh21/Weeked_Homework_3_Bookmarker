@@ -1,0 +1,26 @@
+<h3>Edit a Bookmark</h3>
+<form action="/bookmarker/<%= @bookmarker.id %>" method="post">
+  <fieldset>
+    <legend>Create New Bookmark</legend>
+    <label>Enter Name:</label>
+    <input type="text" name="name" value="<%= @bookmarker.name %>"><br>
+
+    <label>Enter url:</label>
+    <input type="text" name="url" value="<%= @bookmarker.url %>"><br>
+
+
+<!-- add this in as a drop down selection?? -->
+    <label>Enter Genre:</label>
+    <select type="text" name="genre" selected="<%= @bookmarker.genre %>">
+      <option value="News">News</option>
+      <option value="Sport">Sport</option>
+      <option value="Music">Music</option>
+      <option value="Shopping">Shopping</option>
+      <option value="Food">Food</option>
+      <option value="Work">Work</option>
+      <option value="Other">Other</option>
+    </select><br>
+
+    <input type="submit" value="Update Bookmark">
+  </fieldset>
+</form>
