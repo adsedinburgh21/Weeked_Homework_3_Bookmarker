@@ -1,9 +1,14 @@
-<h1>All Bookmarks</h1>
+<h2>All Bookmarks</h2>
 
 <% @bookmarker.each do |bookmark| %> 
-  <p><%= bookmark.name %></p>
+  <h3><%= bookmark.name %></h3>
   <p><%= bookmark.url %></p>
   <p><%= bookmark.genre %></p>
+
+  <a href="/bookmarker/<%= bookmark.id %>/edit">Edit this Bookmark</a><br>
+
+  <a href="<%= bookmark.url %>">Click here to visit <%= bookmark.name %></a>
+
   <hr>
 <%end%>
 

@@ -1,9 +1,10 @@
-<p><%= @bookmarker.name %></p>
-<a href="http://<%= @bookmarker.url %>">Visit <%= @bookmarker.name %></a><br>
+<h2><%= @bookmarker.name %></h2>
+<p><%= @bookmarker.url %></p>
+<p><%= @bookmarker.genre %></p>
 
-<a href="/bookmarker/<%= @bookmarker.id %>/edit">Edit this Bookmark</a><br>
+<h3>Are you sure you want to delete bookmark "<%= @bookmarker.name %>"?</h3>
 
 <form action="/bookmarker/<%= @bookmarker.id %>/delete" method="post">
   <input type="submit" value="Delete this Bookmark">
 </form>
-<!-- why does it delete when in a form like this but not when I type /bookmarker/4/delete into the browser? -->
+<!-- why does it delete when in a form like this but not when I type eg. /bookmarker/4/delete into the browser? -->

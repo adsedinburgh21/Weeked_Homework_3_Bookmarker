@@ -13,6 +13,15 @@ get '/bookmarker/new' do
   erb(:new)
 end
 
+get "/bookmarker/genre" do
+  erb(:genre)
+end
+#### I thought the above get & below post requests might allow me to search by Genre - but it errors.  (and i dont think they are restful).
+post "/bookmarker/genre" do
+  @bookmarker = Bookmarker.genre(params[:search])
+  erb(:index)
+end
+
 get '/bookmarker/:id' do
   @bookmarker = Bookmarker.find( params[:id] )
   erb(:show)
@@ -36,7 +45,10 @@ end
 
 post '/bookmarker/:id/delete' do
   Bookmarker.destroy( params[:id] )
-  redirect(to( '/bookmarker'))
+  erb( :delete )
 end
 ##### Why can I not type this url straight in to the browser to delete entries?
+
+
+
 

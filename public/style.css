@@ -3,6 +3,32 @@ body {
   background-color: orange
 }
 
+h1 {
+  text-align: center;
+  color: #0098d8;
+}
+
 h3 {
-  background-color: royalblue
+  background-color: #0098d8
+}
+
+nav {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #0098d8;
+}
+
+nav li {
+  display: inline-block;
+  padding: 10px;
+  margin: 0;
+  float: both;
+}
+
+nav a {
+  display: inline-block;
 }

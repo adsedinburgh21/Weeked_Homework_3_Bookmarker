@@ -8,10 +8,8 @@
     <label>Enter url:</label>
     <input type="text" name="url" value="<%= @bookmarker.url %>"><br>
 
-
-<!-- add this in as a drop down selection?? -->
     <label>Enter Genre:</label>
-    <select type="text" name="genre" selected="<%= @bookmarker.genre %>">
+    <select type="text" name="genre">
       <option value="News">News</option>
       <option value="Sport">Sport</option>
       <option value="Music">Music</option>
@@ -23,6 +21,10 @@
       <option value="Other">Other</option>
     </select><br>
 
-    <input type="submit" value="Update Bookmark">
+    <input type="submit" value="Save Changes"><br>
+
+    <form action="/bookmarker/<%= @bookmarker.id %>/delete" method="post">
+      <input type="submit" value="Delete this Bookmark">
+    </form>
   </fieldset>
 </form>
