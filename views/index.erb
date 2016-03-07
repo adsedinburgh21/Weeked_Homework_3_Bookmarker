@@ -1,5 +1,28 @@
 <h2>All Bookmarks</h2>
 
+<form action="/bookmarker" method="get">
+  <input type="text" name="search">  
+  <button>Search</button>
+</form>
+<!-- This part above is the search function -->
+
+<form action="/bookmarker" method="get">
+  <label>Select Genre:</label>
+  <select type="text" name="select_genre">
+    <option value="News">News</option>
+    <option value="Sport">Sport</option>
+    <option value="Music">Music</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Food">Food</option>
+    <option value="Work">Work</option>
+    <option value="Social Media">Social Media</option>
+    <option value="Video">Video</option>
+    <option value="Other">Other</option>
+  </select>
+  <input type="submit" value="Search">
+</form>
+
+
 <% @bookmarker.each do |bookmark| %> 
   <h3><%= bookmark.name %></h3>
   <p><%= bookmark.url %></p>

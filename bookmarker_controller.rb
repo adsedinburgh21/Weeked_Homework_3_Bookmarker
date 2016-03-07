@@ -5,22 +5,30 @@ require_relative( './models/bookmarker.rb' )
 
 
 get '/bookmarker' do
-  @bookmarker = Bookmarker.all
-  erb(:index)
+  if params[:search]
+    @bookmarker = Bookmarker.search( params[:search] )
+  elsif params[:select_genre]
+    @bookmarker = Bookmarker.genre( params[:select_genre] )
+  else
+    @bookmarker = Bookmarker.all
+  end
+    erb(:index)
 end
+##### The if above is in place for the search function. If the search 
+
 
 get '/bookmarker/new' do
   erb(:new)
 end
 
-get "/bookmarker/genre" do
-  erb(:genre)
-end
-#### I thought the above get & below post requests might allow me to search by Genre - but it errors.  (and i dont think they are restful).
-post "/bookmarker/genre" do
-  @bookmarker = Bookmarker.genre(params[:search])
-  erb(:index)
-end
+# get "/bookmarker/genre" do
+#   erb(:genre)
+# end
+# #### I thought the above get & below post requests might allow me to search by Genre - but it errors.  (and i dont think they are restful).
+# post "/bookmarker/genre" do
+#   @bookmarker = Bookmarker.genre(params[:search])
+#   erb(:index)
+# end
 
 get '/bookmarker/:id' do
   @bookmarker = Bookmarker.find( params[:id] )

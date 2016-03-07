@@ -63,12 +63,23 @@ class Bookmarker
   end
 
   def self.genre(genre)
-    database = PG.connect( dbname: 'bookmarker', host: 'localhost')
-    sql = "SELECT * FROM bookmarks WHERE genre = #{genre}"
-    result = database.exec( sql )
+    database = PG.connect( {dbname: 'bookmarker', host: 'localhost'} )
+    sql = "SELECT * FROM bookmarks WHERE genre = '#{genre}'"
+    search_result = database.exec( sql )
+    result = search_result.map { |bookmark| Bookmarker.new(bookmark) }
     database.close
     return result
   end
+
+  def self.search(search)
+    database = PG.connect( {dbname: 'bookmarker', host: 'localhost'} )
+    sql = "SELECT * FROM bookmarks WHERE name LIKE '%#{search}%'"
+    search_result = database.exec( sql )
+    result = search_result.map { |bookmark| Bookmarker.new(bookmark) }
+    database.close
+    return result
+  end
+
 end
 #### This is how I planned to search by genre but I'm not sure how to link this to a page on the browser. I would call Bookmarker.genre( input_from_dropdown_of_all_genres ). So I would like to create a page 'select by genre' on which there will be a drop down list of all the genres and when you pick one the screen will display all bookmarks in the database with that selected genre. I thought maybe I could use the index.erb page to display the info but I dont know?
 
